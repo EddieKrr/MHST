@@ -145,7 +145,7 @@ form{
     left: -250%;;
     width: 300%;
     height: 100%;
-    background: #7494ec;
+    background: linear-gradient(45deg, rgb(99, 231, 99), black, rgb(95, 95, 223));;
     border-radius: 150px;
     z-index: 2; 
     transition: 1.8s ease-in-out;
@@ -159,7 +159,7 @@ form{
     position: absolute;
     width: 50%;
     height: 100%;
-    color:#fff;
+    color: linear-gradient(90deg, #78ec74, #e2e2e2);
     display: flex;
     flex-direction: column;
     justify-content: center;
