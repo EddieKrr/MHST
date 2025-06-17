@@ -39,6 +39,12 @@ body{
     transition: .6s ease-in-out 1.2s, visibility 0s 1s;
 }
 
+.form-box form {
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+
 .container.active .form-box{
     right: 50%;
 }
