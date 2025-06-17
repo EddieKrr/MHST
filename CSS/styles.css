@@ -263,3 +263,24 @@ form{
         font-size: 30px;
     }
 }
+
+.input-box select {
+    width: 100%;
+    padding: 13px 50px 13px 20px;
+    background: #eee;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    appearance: none;
+}
+
+.input-box select:invalid {
+    color: #888;
+}
+
+.input-box select option {
+    color: #000;
+}
