@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-sign-in-client_id" content="765942851096-fgiq7j6e720f684s2i6dcvub3p6pipsd.apps.googleusercontent.com">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <title>Welcome!</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="CSS/styles.css">
@@ -27,7 +29,23 @@
                 <button type="submit" class="btn">Login</button>
                 <p> or login with social platforms</p>
                 <div class="social-icons">
-                    <a href="#"><i class='bx bxl-google'></i></a>
+                    
+                    <div id="g_id_onload"
+                        data-client_id="765942851096-fgiq7j6e720f684s2i6dcvub3p6pipsd.apps.googleusercontent.com"
+                        data-callback="handleCredentialResponse"
+                        data-auto_prompt="false">
+                    </div>
+
+                    <div class="g_id_signin"
+                        data-type="standard"
+                        data-shape="rectangular"
+                        data-theme="outline"
+                        data-text="continue_with"
+                        data-size="large"
+                        data-logo_alignment="left">
+                    </div>
+
+                    
                     <a href="#"><i class='bx bxl-facebook-circle'></i></a>
                     <a href="#"><i class='bx bxl-instagram'></i></a>
                     <a href="#"><i class='bx bxl-github'></i></a>
@@ -78,7 +96,20 @@
 
     <p>or register with social platforms</p>
     <div class="social-icons">
-        <a href="#"><i class='bx bxl-google'></i></a>
+        <div id="g_id_onload"
+                        data-client_id="765942851096-fgiq7j6e720f684s2i6dcvub3p6pipsd.apps.googleusercontent.com"
+                        data-callback="handleCredentialResponse"
+                        data-auto_prompt="false">
+                    </div>
+
+                    <div class="g_id_signin"
+                        data-type="standard"
+                        data-shape="rectangular"
+                        data-theme="outline"
+                        data-text="continue_with"
+                        data-size="large"
+                        data-logo_alignment="left">
+                    </div>
         <a href="#"><i class='bx bxl-facebook-circle'></i></a>
         <a href="#"><i class='bx bxl-instagram'></i></a>
         <a href="#"><i class='bx bxl-github'></i></a>

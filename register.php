@@ -9,8 +9,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $gender   = $conn->real_escape_string($_POST["gender"]);
     $role     = 'user';
 
+     if ($age<18) {
+        echo "You must be at least 18 years old to register.";
+        exit();	
+    }
+
     $sql = "INSERT INTO users (name, email, password, age, gender, role)
             VALUES ('$name', '$email', '$password', $age, '$gender', '$role')";
+
 
     if ($conn->query($sql)) {
         echo "Registration successful.";
