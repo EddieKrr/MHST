@@ -13,6 +13,7 @@
     <div class="main-section">
         <div class="hero">
             <img src="" alt="" class="img">
+            <p> Welcome to our website! We are glad to have you here. Explore our content and discover what we have to offer.</p>
             <button class="button">
                 <a href = #>Learn more</a>
             </button>
