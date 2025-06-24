@@ -6,6 +6,7 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .nav{
+    
     background-color: aqua;
     border: 0px ;
     border-radius: 25px;
@@ -13,7 +14,6 @@ body{
     justify-content: space-between;
     align-items: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    position: sticky;
     top: 0;
     z-index: 2;
 }
@@ -48,13 +48,10 @@ body{
     position: fixed;
     justify-content: center;
     padding-top: 10px;
-    bottom: 0;
-    z-index: 2;
+    z-index: 4;
     background-color: aqua;
     width: 100%;
     border-radius: 25px 25px 0 0;
-    padding: none;
-    margin: none;
 }
 .container{
     width: 90%;

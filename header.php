@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Header</title>
     <link rel="stylesheet" href="CSS/head.css">
+    <link rel="stylesheet" href="CSS/light-mc.css">
 </head>
-<body>
+<body >
     <header>
         <div class="nav">
             <div class="logo">
@@ -22,6 +23,7 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
+        
     </header>
 </body>
 </html>
