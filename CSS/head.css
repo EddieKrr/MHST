@@ -6,16 +6,20 @@ body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 .nav{
-    
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
     background-color: aqua;
     border: 0px ;
     border-radius: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    top: 0;
-    z-index: 2;
+    padding: 10px 20px;
+    margin-top: 2vh;
+    z-index: 10;
 }
 .nav-links{
     padding: 10px 10px;
@@ -45,13 +49,13 @@ body{
 }
 .footer{
     display: flex;
-    position: fixed;
+    position: relative;
     justify-content: center;
     padding-top: 10px;
     z-index: 4;
     background-color: aqua;
     width: 100%;
-    border-radius: 25px 25px 0 0;
+    border-radius: 25px 25px 0 0; 
 }
 .container{
     width: 90%;
