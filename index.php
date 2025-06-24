@@ -13,6 +13,7 @@
     <div class="main-section">
         <div class="hero">
             <img src="" alt="" class="img">
+            <p>Testing push changes</p>
             <button class="button">
                 <a href = #>Learn more</a>
             </button>
