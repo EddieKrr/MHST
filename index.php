@@ -14,7 +14,7 @@
         <div class="hero">
             <img src="" alt="" class="img">
             <p> Welcome to our website! We are glad to have you here. Explore our content and discover what we have to offer.</p>
-            <p> Our website is designed to provide you with the best experience possible. We hope you find everything you are looking for.</p>
+            <p>Testing push changes</p>
             <button class="button">
                 <a href = #>Learn more</a>
             </button>
