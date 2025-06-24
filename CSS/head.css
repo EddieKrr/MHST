@@ -1,3 +1,10 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 .nav{
     background-color: aqua;
     border: 0px ;
@@ -35,4 +42,62 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
+}
+.footer{
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    padding-top: 10px;
+    bottom: 0;
+    z-index: 2;
+    background-color: aqua;
+    width: 100%;
+    border-radius: 25px 25px 0 0;
+    padding: none;
+    margin: none;
+}
+.container{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.info{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+}
+.info li{
+    list-style: none;
+    padding: 0px;
+}
+.info li a{
+    text-decoration: none;
+    color: black;
+}
+.info li a:hover{
+    color: thistle;
+    font-size: 20px;
+}
+.links{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+    justify-content: left;
+}
+.links li{
+    list-style: none;
+    padding: 5px;
+}
+.links li a{
+    text-decoration: none;
+    color: black;
+}
+.links li a:hover{
+    color: thistle;
+    font-size: 20px;
 }
