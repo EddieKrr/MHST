@@ -11,13 +11,14 @@
 <body class="light-medium-contrast">
     <?php include 'header.php'; ?>
     <div class="main-section">
-        <div class="hero">
-            <img src="" alt="" class="img">
-            
-            <button class="button">
+        <button class="button">
                 <a href = #>Learn more</a>
             </button>
-        </div>
+        <!-- <div class="hero">
+            <img src="" alt="" class="img">
+            
+            
+        </div> -->
     </div>
     <?php include 'footer.php'; ?>
 </body>
