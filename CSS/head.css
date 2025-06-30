@@ -11,7 +11,7 @@ body{
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
-    background-color: aqua;
+    background-color: #253a82;
     border: 0px ;
     border-radius: 25px;
     display: flex;
@@ -22,6 +22,7 @@ body{
     z-index: 10;
 }
 .nav-links{
+    color: #c0e0ff;
     padding: 10px 10px;
     list-style: none;
     display: flex;
@@ -29,12 +30,15 @@ body{
 }
 .nav-links li{
     margin: 0 10px;
+    background-color: #ab9dff;
+    padding: 10px;
+    border-radius: 25px;
 }
 
 
 .nav-links li a{
     text-decoration: none;
-    color: black;
+    color: #e3fc87;
     font-weight: bold;
 }
 
@@ -53,7 +57,7 @@ body{
     justify-content: center;
     padding-top: 10px;
     z-index: 4;
-    background-color: aqua;
+    background-color: #253a82;
     width: 100%;
     border-radius: 25px 25px 0 0; 
 }
@@ -72,15 +76,18 @@ body{
 }
 .info li{
     list-style: none;
-    padding: 0px;
+    padding: 10px;
+    /* background-color: #ab9dff; */
+    border-radius: 25px;
+    margin: 5px;
 }
 .info li a{
     text-decoration: none;
-    color: black;
+    color: #e3fc87;
 }
 .info li a:hover{
     color: thistle;
-    font-size: 20px;
+    /* font-size: 20px; */
 }
 .links{
     display: flex;
@@ -96,7 +103,7 @@ body{
 }
 .links li a{
     text-decoration: none;
-    color: black;
+    color: #e3fc87;
 }
 .links li a:hover{
     color: thistle;

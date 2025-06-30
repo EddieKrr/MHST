@@ -1,16 +1,18 @@
 .main-section{
+    display: flex;
     padding-top: 70px;
     padding-bottom: 120px;
     align-items: center;
     justify-content: center;
     background-color: lightgray;
+    height: 100vh;
 }
 .hero{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 70px);
+    height: calc(80% - 70px);
     background-color: lightblue;
 }
 .hero img{
