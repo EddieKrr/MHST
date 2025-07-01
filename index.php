@@ -4,22 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="CSS/head.css">
     <link rel="stylesheet" href="CSS/body.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body class="light-medium-contrast">
-    <?php include 'header.php'; ?>
-    <div class="main-section">
-        <button class="button">
-                <a href = #>Learn more</a>
-            </button>
-        <!-- <div class="hero">
-            <img src="" alt="" class="img">
-            
-            
-        </div> -->
-    </div>
+<body>
+    <?php include 'header.php'; ?>  
+    
+
+    
     <?php include 'footer.php'; ?>
 </body>
 </html>
