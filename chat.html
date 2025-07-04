@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MHST Chatroom</title>
     <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/chat.css">
+    <script src="JS/scripts.js"></script>
 </head>
 <body class="mwili">
 
@@ -15,15 +17,15 @@
             
     <div class="chatroom">
         <div class="chatroom-header">
-            <h1>MHST Chatroom</h1>
-            <p>Welcome to the MHST chatroom! Join us for discussions and fun!</p>
+            <h1 class="fadeIn" id="chatroom-title">MHST Chatroom</h1>
+            <!-- <p>*put something relatable*</p> -->
+            <div class="chatbox">
+            <iframe class="chatframe" title="MHST Chatroom" src="https://chitchatter.im/public/MHST?embed=1" allow="camera;microphone;display-capture;fullscreen"></iframe>
+            </div>
+        </div>
         </div>
 
-        <div class="chatbox">
-            <iframe src="https://chitchatter.im/public/MHST?embed=1" allow="camera;microphone;display-capture;fullscreen" style="height: 800px; width: 800px;"></iframe>
-        </div>
-        </iframe>
-        </div>
+        
     </div>
 </body>
 </html>

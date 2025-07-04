@@ -232,7 +232,8 @@ form{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 20px;
+  padding-top: 50px;
+  padding-bottom: 10px;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(4px);
   border-radius: 20px;
@@ -241,7 +242,11 @@ form{
 .chatroom-header {
  margin-top: 20px;
  text-align: center;
-
+ height: 20px;
+ width: 80%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
 
 .chatroom-header h1 {
@@ -256,21 +261,25 @@ form{
 }
 .chatbox {
 margin-top: 20px;
+margin-bottom: 80px;
 flex-grow:1;
 display: flex;
 justify-content: center;
 align-items: center;
 width: 100%;
+animation: fadeIn 1s ease-in-out forwards;
 }
 
 .chatbox iframe {
   width: 90vw;
   max-width: 800px;
-  height: 70vh;
-  border: none;
+  /* height: 70vh; */
+  /* z-index: 11;  */
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  z-index: 11;
+  color: #88a2ff;
+  border: none;
+  animation: fadeIn 1s ease-in-out forwards;
 }
 @media screen and (max-width: 650px) {
     .container{
@@ -355,4 +364,16 @@ width: 100%;
 
 .input-box select option {
     color: #000;
+}
+.fadeIn {
+    animation: fadeIn 3s ease-in-out forwards;
+    
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }

@@ -1,0 +1,51 @@
+*{
+  ::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #253a82; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #9bdbf4; 
+  border-radius: 25px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+}
+.mwili{
+    max-width: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatroom{
+    margin-top: 30px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+.chatbox{
+    width: 100vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+.chatframe{
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+}
+.vedio-bg-wrapper{
+
+}

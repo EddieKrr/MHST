@@ -28,3 +28,4 @@ function handleCredentialResponse(response) {
         }
     });
 }
+document.getElementById("chatroom-title").style.opacity = 1
