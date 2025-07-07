@@ -20,6 +20,7 @@
             <h2> John Doe</h2>
             <h3>Specialty: BPD</h3>
             <a href="mailto:johndoe@example.com"><h4>Contact: johndoe@example.com</h4></a>
+
         </div>
         <div class="sec2">
             <img src="images/user.svg" alt="User Icon" class ="user-icon">
