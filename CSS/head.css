@@ -1,18 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+.quicksand {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
 *{
     box-sizing: border-box;
 }
 body{
     margin: 0;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Quicksand", sans-serif;
 }
 .nav{
-    position: sticky;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  z-index: 1000;
+    /* position: sticky;
     top: 0;
     left: 10%;
     right: 10%;
-    /* transform: translateX(-50%); */
     width: 80%;
-    /* background: linear-gradient(270deg, #253a82, transparent); */
+    background: linear-gradient(270deg, #253a82, transparent); */
     background: transparent;
     backdrop-filter: blur(8px);
     box-shadow: #ab9dff 10px  10px 20px;
@@ -87,11 +100,10 @@ body{
 }
 .info li a{
     text-decoration: none;
-    color: #e3fc87;
+    color: #c0e0ff;
 }
 .info li a:hover{
-    color: thistle;
-    /* font-size: 20px; */
+    color: #ab9dff;
 }
 .links{
     display: flex;
@@ -107,11 +119,10 @@ body{
 }
 .links li a{
     text-decoration: none;
-    color: #e3fc87;
+    color: #c0e0ff;
 }
 .links li a:hover{
-    color: thistle;
-    font-size: 20px;
+    color: #ab9dff;
 }
 @media (max-width: 768px) {
   /* HEADER */
@@ -165,4 +176,11 @@ body{
   .links li a {
     font-size: 16px;
   }
+}
+.logo{
+  border-radius: 50%;
+  width: auto;
+  height: auto;
+  padding-top: 9px;
+  max-width: 150px;
 }

@@ -7,17 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <footer class="footer">
+    <footer class="footer" id="footer">
         <div class="container">
             <ul class="info">
-                <li><a href="mailto:support@mhst.com">Email: Support@mhst.com </a></li>
-                <li><a href="tel:+1234567890">Phone: +1 234 567 890</a></li>
-                <li><a href="maps link">Address: 123 Main St, City, Country</a></li>
+                <img src="images/logo.jpg" alt="Logo" class="logo">
             </ul>
             <ul class="links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="mailto:support@mhst.com">Email: support@mhst.com </a></li>
+                <li><a href="tel:+254701258510">Phone: +254 701 258510</a></li>
+                <li><a href="maps link">Address: STC, First Floor</a></li>
             </ul>
         </div>
     </footer>

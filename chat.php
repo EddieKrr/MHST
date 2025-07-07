@@ -9,7 +9,7 @@
     <script src="JS/scripts.js"></script>
 </head>
 <body class="mwili">
-
+    <?php include 'header.php'; ?>
     <div class="vedio-bg-wrapper">
         <video autoplay muted loop playsinline class="bg-vedio">
             <source src="vedios/chat-bg.mp4" type="video/mp4">
@@ -25,7 +25,7 @@
         </div>
         </div>
 
-        
+        <?php include 'footer.php'; ?>
     </div>
 </body>
 </html>

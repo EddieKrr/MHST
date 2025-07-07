@@ -15,14 +15,12 @@
                 </a>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="signin.html">Sign In</a></li>
-                <li><a href="register.html">Register</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="articles.php">Library</a></li>
+                <li><a href="chat.php">ChatRoom</a></li>
+                <li><a href="#footer">Contact Us</a></li>
             </ul>
         </div>
-        
     </header>
 </body>
 </html>
