@@ -1,5 +1,3 @@
-const { act } = require("react");
-
 document.addEventListener('DOMContentLoaded', () => {
     const tbody = document.getElementById('tbody');
 
@@ -18,11 +16,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.error("Server Error: ", users.error);
                     const row = tbody.insertRow();
                     const cell = row.insertCell();
-                    cell.colSpan = 5; 
-                    cell.textContent = 'Error fetching users: ${users.error}';
+                    cell.colSpan = 8; 
+                    cell.textContent = `Error fetching users: ${users.error}`;
                     cell.style.color = 'red';
                     return;
                 }
+
+                if (users.length === 0) {
+                const row = tbody.insertRow();
+                const cell = row.insertCell();
+                cell.colSpan = 8;
+                cell.textContent = 'No users found in the database.';
+                cell.style.textAlign = 'center';
+                cell.style.color = 'gray';
+                return;
+            }
+
 
                 users.forEach(user=> {
                     const row = tbody.insertRow();
@@ -31,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     row.insertCell().textContent = user.email;
                     row.insertCell().textContent = '********';
                     row.insertCell().textContent = user.age;
+                    row.insertCell().textContent = user.gender;
                     row.insertCell().textContent = user.role;
 
                     const actionsCell = row.insertCell();
@@ -52,9 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Fetch error: ', error);
             const row = tbody.insertRow();
             const cell = row.insertCell();
-            cell.colSpan = 5;
-            cell.textContent = 'Error fetching users';
+            cell.colSpan = 8;
+            cell.textContent = `Error fetching users: ${error.message}`;
             cell.style.color = 'red';
         }
     }
+
+    fetchUsers();
 });
