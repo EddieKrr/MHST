@@ -1,6 +1,4 @@
-<?php
-
-require_once 'db.php';
+<?php require_once 'db.php';
 header('Content-Type: application/json');
 
 $response = [ 'success' => false, 'message' => '' ];
@@ -37,6 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
         echo json_encode($response);
         exit();
     }
+
+    $stmt->bind_param("ssssis", $name, $email, $hashed_password, $age, $gender, $role);
 
     if ($stmt -> execute()){
         $response['success'] = true;

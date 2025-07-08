@@ -30,6 +30,15 @@ if (!isset($_SESSION["name"])) {
         </thead>
         <tbody id="tbody"></tbody>
     </table>
-    
+
+    <form id="addUser">
+        <input type="text" placeholder="Name" name="name" id="name" required>
+        <input type="email" placeholder="Email" name="email" id="email" required>
+        <input type="password" placeholder="Password" name="password" id="password" required>
+        <input type="number" placeholder="Age" name="age" id="age" required>
+        <input type="text" placeholder="Gender" name="gender" id="gender" required>
+        <input type="text" placeholder="Role" name="role" id="role">
+        <button type="submit">Add User</button>
+    </form>
 </body>
 </html>

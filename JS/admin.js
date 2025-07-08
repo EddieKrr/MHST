@@ -68,5 +68,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    const addUserForm = document.getElementById('addUser');
+    addUserForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const name= document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const age = document.getElementById('age').value.trim();
+        const gender = document.getElementById('gender').value.trim();
+        const role = document.getElementById('role').value.trim();
+
+        if (!name || !email || !password || !gender){
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        const UserData = {
+            name: name,
+            email: email,       
+            password: password,
+            age: parseInt(age) || 0,
+            gender: gender,
+            role: role || 'user'
+        };
+
+        try {
+            const response = await fetch('create_user.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(UserData)
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
+            }
+
+            const result = await response.json();
+
+            if (result.success){
+                alert(result.message);
+                addUserForm.reset();
+                fetchUsers();
+            }else{
+                alert(`Error adding user: ${result.message}`);
+            }
+        } catch (error) {
+            console.error(`Error adding user: ${error}`);
+            alert(`Could not add user: ${error.message}`);
+        }
+    });
+
     fetchUsers();
 });
