@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["name"])) {
+    header("Location: signin.html");
+    exit();
+}?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,13 +36,13 @@
                     <h4>Anxiety is Anxieting</h4>
                 </a>
                 <a href="#article2" class="clickable-title">
-                    <h4>Daily Affirmations</h4>
+                    <h4>BPD: The Other Side Of You</h4>
                 </a>
                 <a href="#article3" class="clickable-title">
-                    <h4>Morning Coffee</h4>
+                    <h4>Depresssion: Mbona unakaa sura ya kiatu?</h4>
                 </a>
                 <a href="#article4" class="clickable-title">
-                    <h4>Ritual Items</h4>
+                    <h4>Heartbreaks and Hail Marys</h4>
                 </a>
                 <a href="#article5" class="clickable-title">
                     <h4>Mindful Moments</h4>

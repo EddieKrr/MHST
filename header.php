@@ -18,6 +18,7 @@
                 <li><a href="index.php">Home</a></li>
                 <li><a href="articles.php">Library</a></li>
                 <li><a href="chat.php">ChatRoom</a></li>
+                <li><a href="referral.php">Referrals</a></li>
                 <li><a href="#footer">Contact Us</a></li>
             </ul>
         </div>
