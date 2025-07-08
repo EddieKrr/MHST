@@ -10,20 +10,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $role     = 'user';
 
      if ($age<18) {
-        echo "You must be at least 18 years old to register.";
+        echo "<script>alert('You must be at least 18 years old to register.'); window.location.href = 'signin.html';</script>";
         exit();	
     }
 
-    $sql = "INSERT INTO users (name, email, password, age, gender, role)
-            VALUES ('$name', '$email', '$password', $age, '$gender', '$role')";
+     try {
+        $sql = "INSERT INTO users (name, email, password, age, gender, role)
+                VALUES ('$name', '$email', '$password', $age, '$gender', '$role')";
 
+        $conn->query($sql);
 
-    if ($conn->query($sql)) {
-        echo "Registration successful.";
-    } else {
-        echo "Error: " . $conn->error;
+        
+        echo "<script>alert('Registration successful!'); window.location.href = 'signin.html';</script>";
+    } catch (mysqli_sql_exception $e) {
+        if ($e->getCode() == 1062) {
+            
+            echo "<script>alert('This email is already registered. Please use another.'); window.location.href = 'signin.html';</script>";
+        } else {
+            
+            echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
+        }
     }
-
-    $conn->close();
 }
 ?>
