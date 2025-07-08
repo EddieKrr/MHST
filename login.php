@@ -18,10 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: index.php");
             exit();
         } else {
-            echo "Invalid password.";
+            echo "<script>alert('Invalid password.'); window.location.href = 'signin.html';</script>";
         }
     } else {
-        echo "User not found.";
+        echo "<script>alert('User not found.'); window.location.href = 'signin.html';</script>";
     }
 
     $conn->close();
