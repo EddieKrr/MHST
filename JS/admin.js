@@ -58,6 +58,12 @@ window.addEventListener('DOMContentLoaded', () => {
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
 
+                deleteButton.addEventListener('click', async() =>{
+                    if (confirm(`Are you sure you want to delete user ${user.name} (ID:${user.id})?`)) {
+                        await deleteUser(user.id);
+                    }
+                });
+
                 actionsCell.appendChild(editButton);
                 actionsCell.appendChild(deleteButton);
             });
@@ -79,6 +85,44 @@ window.addEventListener('DOMContentLoaded', () => {
         document.getElementById('editGender').value = user.gender;
         document.getElementById('editRole').value = user.role;
         document.getElementById('editPassword').value = '';
+    }
+    
+    // Delete user
+    async function deleteUser(id) {
+        try {
+            const response = await fetch('delete_user.php', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json' 
+                },
+                body: JSON.stringify({ id: id })
+            });
+
+            console.log('Raw delete response from server:', response);
+
+            let result;
+            try{
+                result = await response.json();
+                console.log('Parsed delete response:', result);
+            }catch (jsonError){
+                console.error('Error parsing JSON response for delete: ', jsonError);
+                const responseText = await response.text();
+                console.error('Delete response text was:', responseText);
+                alert('Server returned an invalid response during delete. Please check server logs.');
+                return;
+            }
+
+            if (response.ok && result.success) {
+                alert(result.message);
+                fetchUsers();
+            }else{
+            alert(`Error deleting user: ${result.message || 'Unknown error'}`);
+            console.error(`Server Delete Error: `, result.message || result);
+            }
+        }catch (error) {
+            console.error('Error deleting user:', error);
+            alert(`Could not delete user: ${error.message}`);
+        }
     }
 
     // Edit form submission
