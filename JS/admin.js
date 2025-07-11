@@ -1,28 +1,29 @@
-document.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', () => {
     const tbody = document.getElementById('tbody');
+    const addUserForm = document.getElementById('addUser');
+    const editUserForm = document.getElementById('editUserForm');
+    const editUserContainer = document.getElementById('editUserContainer');
+    const cancelEditButton = document.getElementById('cancelEdit');
 
-    async function fetchUsers(){
+    // Fetch and display users
+    async function fetchUsers() {
         try {
             const response = await fetch('read_users.php');
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-            if (!response.ok) {
-                throw new Error('HTTP error! status: ${response.status}');
-                }
-                const users = await response.json();
+            const users = await response.json();
+            tbody.innerHTML = '';
 
-                tbody.innerHTML = ''; // Clear existing rows
+            if (users.error) {
+                const row = tbody.insertRow();
+                const cell = row.insertCell();
+                cell.colSpan = 8;
+                cell.textContent = `Error fetching users: ${users.error}`;
+                cell.style.color = 'red';
+                return;
+            }
 
-                if (users.error) {
-                    console.error("Server Error: ", users.error);
-                    const row = tbody.insertRow();
-                    const cell = row.insertCell();
-                    cell.colSpan = 8; 
-                    cell.textContent = `Error fetching users: ${users.error}`;
-                    cell.style.color = 'red';
-                    return;
-                }
-
-                if (users.length === 0) {
+            if (users.length === 0) {
                 const row = tbody.insertRow();
                 const cell = row.insertCell();
                 cell.colSpan = 8;
@@ -32,34 +33,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            users.forEach(user => {
+                const row = tbody.insertRow();
+                row.insertCell().textContent = user.id;
+                row.insertCell().textContent = user.name;
+                row.insertCell().textContent = user.email;
+                row.insertCell().textContent = '********';
+                row.insertCell().textContent = user.age || 'N/A';
+                row.insertCell().textContent = user.gender;
+                row.insertCell().textContent = user.role;
 
-                users.forEach(user=> {
-                    const row = tbody.insertRow();
-                    row.insertCell().textContent = user.id;
-                    row.insertCell().textContent = user.name;
-                    row.insertCell().textContent = user.email;
-                    row.insertCell().textContent = '********';
-                    row.insertCell().textContent = user.age;
-                    row.insertCell().textContent = user.gender;
-                    row.insertCell().textContent = user.role;
+                const actionsCell = row.insertCell();
+                const editButton = document.createElement('button');
+                const deleteButton = document.createElement('button');
 
-                    const actionsCell = row.insertCell();
+                editButton.textContent = 'Edit';
+                deleteButton.textContent = 'Delete';
+                editButton.classList.add('edit-btn');
+                deleteButton.classList.add('delete-btn');
 
-                    const editButton = document.createElement('button');
-                    editButton.textContent = 'Edit';
-                    editButton.classList.add('edit-btn');
-
-                    const deleteButton = document.createElement('button');
-                    deleteButton.textContent = 'Delete';
-                    deleteButton.classList.add('delete-btn');
-
-                    actionsCell.appendChild(editButton);
-                    actionsCell.appendChild(deleteButton);
+                editButton.addEventListener('click', () => {
+                    populateEditForm(user);
+                    editUserContainer.style.display = 'block';
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
 
-            
+                actionsCell.appendChild(editButton);
+                actionsCell.appendChild(deleteButton);
+            });
         } catch (error) {
-            console.error('Fetch error: ', error);
             const row = tbody.insertRow();
             const cell = row.insertCell();
             cell.colSpan = 8;
@@ -68,58 +70,118 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const addUserForm = document.getElementById('addUser');
-    addUserForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
+    // Populate the edit form with user data
+    function populateEditForm(user) {
+        document.getElementById('editId').value = user.id;
+        document.getElementById('editName').value = user.name;
+        document.getElementById('editEmail').value = user.email;
+        document.getElementById('editAge').value = user.age || '';
+        document.getElementById('editGender').value = user.gender;
+        document.getElementById('editRole').value = user.role;
+        document.getElementById('editPassword').value = '';
+    }
 
-        const name= document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const password = document.getElementById('password').value.trim();
-        const age = document.getElementById('age').value.trim();
-        const gender = document.getElementById('gender').value.trim();
-        const role = document.getElementById('role').value.trim();
+    // Edit form submission
+    editUserForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-        if (!name || !email || !password || !gender){
-            alert('Please fill in all fields.');
+        const id = document.getElementById('editId').value;
+        const name = document.getElementById('editName').value.trim();
+        const email = document.getElementById('editEmail').value.trim();
+        const password = document.getElementById('editPassword').value.trim();
+        const age = document.getElementById('editAge').value.trim();
+        const gender = document.getElementById('editGender').value.trim();
+        const role = document.getElementById('editRole').value.trim();
+
+        if (!name || !email || !gender || !role) {
+            alert('Please fill in all required fields.');
             return;
         }
 
-        const UserData = {
-            name: name,
-            email: email,       
-            password: password,
-            age: parseInt(age) || 0,
-            gender: gender,
-            role: role || 'user'
+        const userData = {
+            id, name, email,
+            age: age ? parseInt(age) : null,
+            gender, role
         };
 
-        try {
-            const response = await fetch('create_user.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(UserData)
-            });
+        if (password) userData.password = password;
 
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
-            }
+        try {
+            const response = await fetch('update_user.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(userData)
+            });
 
             const result = await response.json();
 
-            if (result.success){
+            if (response.ok && result.success) {
                 alert(result.message);
-                addUserForm.reset();
+                editUserForm.reset();
+                editUserContainer.style.display = 'none';
                 fetchUsers();
-            }else{
-                alert(`Error adding user: ${result.message}`);
+            } else {
+                alert(`Error updating user: ${result.message || response.statusText}`);
             }
         } catch (error) {
-            console.error(`Error adding user: ${error}`);
-            alert(`Could not add user: ${error.message}`);
+            console.error('Error updating user:', error);
+            alert(`Could not update user: ${error.message}`);
         }
     });
 
+    // Cancel edit
+    cancelEditButton.addEventListener('click', () => {
+        editUserForm.reset();
+        editUserContainer.style.display = 'none';
+    });
+
+    // Add user form submission
+    if (addUserForm) {
+        addUserForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const age = document.getElementById('age').value.trim();
+            const gender = document.getElementById('gender').value.trim();
+            const role = document.getElementById('role').value.trim();
+
+            if (!name || !email || !password || !gender) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            const userData = {
+                name, email, password,
+                age: age ? parseInt(age) : 0,
+                gender,
+                role: role || 'user'
+            };
+
+            try {
+                const response = await fetch('create_user.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(userData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    alert(result.message);
+                    addUserForm.reset();
+                    fetchUsers();
+                } else {
+                    alert(`Error adding user: ${result.message || response.statusText}`);
+                }
+            } catch (error) {
+                console.error('Error adding user:', error);
+                alert(`Could not add user: ${error.message}`);
+            }
+        });
+    }
+
+    // Initial fetch
     fetchUsers();
 });

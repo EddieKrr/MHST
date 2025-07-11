@@ -40,5 +40,40 @@ if (!isset($_SESSION["name"])) {
         <input type="text" placeholder="Role" name="role" id="role">
         <button type="submit">Add User</button>
     </form>
+    <div class="form-container" id="editUserContainer" style="display:none;">
+        <h2>Edit User</h2>
+        <form id="editUserForm">
+            <input type="hidden" name="id" id="editId"> <label for="editName">Name:</label>
+            <input type="text" name="name" id="editName" required>
+            <label for="editEmail">Email:</label>
+            <input type="email" name="email" id="editEmail" required>
+            <label for="editPassword">New Password (leave blank to keep current):</label>
+            <input type="password" name="password" id="editPassword">
+            <label for="editAge">Age:</label>
+            <input type="number" name="age" id="editAge">
+            <label for="editGender">Gender:</label>
+            <input type="text" name="gender" id="editGender" required>
+            <label for="editRole">Role:</label>
+            <input type="text" name="role" id="editRole" required>
+            <button type="submit">Update User</button>
+            <button type="button" id="cancelEdit">Cancel</button>
+        </form>
+    </div>
+
+    <h2>Existing Users</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
 </body>
 </html>
