@@ -357,3 +357,115 @@ body{
 .hover-fill::before {
     z-index: 0;
 }
+.aBody{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+.aBody > div {
+    border-radius: 25px;
+    padding: 20px;
+    color: var(--color-cream);
+}
+.a1{
+    grid-column: 1 / span 2;
+    background-color: var(--color-dark-blue);
+}
+.a2{
+    grid-column: 3 / span 1;
+    background-color: var(--color-dark-blue);
+}
+.a3{
+    grid-column: 1 / span 1;
+    background-color: var(--color-dark-blue);
+}
+.a4{
+    grid-column: 2 / span 2;
+    background-color: var(--color-dark-blue);
+}
+.a5{
+    grid-column: 1 / span 2;
+    background-color: var(--color-dark-blue);
+}
+.a6{
+    grid-column: 3 /span 1;
+    background-color: var(--color-dark-blue);
+}
+.a1Modal, .a2Modal, .a3Modal, .a4Modal, .a5Modal, .a6Modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
+}
+
+/* Modal Content Styles */
+.a1ModalContent, .a2ModalContent, .a3ModalContent, .a4ModalContent, .a5ModalContent, .a6ModalContent {
+    background-color: var(--color-cream);
+    margin: 5% auto;
+    padding: 30px;
+    border: none;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    position: relative;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.a1ModalContent h2, .a2ModalContent h2, .a3ModalContent h2, 
+.a4ModalContent h2, .a5ModalContent h2, .a6ModalContent h2 {
+    color: var(--color-dark-text);
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.a1ModalContent p, .a2ModalContent p, .a3ModalContent p, 
+.a4ModalContent p, .a5ModalContent p, .a6ModalContent p {
+    color: var(--color-dark-text);
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+/* Close Button Styling */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover, .close:focus {
+    color: var(--color-dark-text);
+    text-decoration: none;
+}
+
+.article {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
