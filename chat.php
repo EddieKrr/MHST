@@ -13,6 +13,7 @@ if (!isset($_SESSION["name"])) {
     <title>MHST Chatroom</title>
     <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="CSS/chat.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.jpg">
     <script src="JS/scripts.js"></script>
 </head>
 <body class="mwili">
