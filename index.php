@@ -32,23 +32,23 @@ if (!isset($_SESSION["name"])) {
 
         <div class="div3">
             <div class="scroll-container">
-                <a href="#article1" class="clickable-title">
+                <a href="articles.php" class="clickable-title">
                     <h4>Anxiety is Anxieting</h4>
                 </a>
-                <a href="#article2" class="clickable-title">
+                <a href="articles.php" class="clickable-title">
                     <h4>BPD: The Other Side Of You</h4>
                 </a>
-                <a href="#article3" class="clickable-title">
+                <a href="articles.php" class="clickable-title">
                     <h4>Depresssion: Mbona unakaa sura ya kiatu?</h4>
                 </a>
-                <a href="#article4" class="clickable-title">
-                    <h4>Heartbreaks and Hail Marys</h4>
+                <a href="articles.php" class="clickable-title">
+                    <h4>Schizophrenia: Bestie is that you?</h4>
                 </a>
-                <a href="#article5" class="clickable-title">
-                    <h4>Mindful Moments</h4>
+                <a href="articles.php" class="clickable-title">
+                    <h4>OCD: No you don't want this</h4>
                 </a>
-                <a href="#article6" class="clickable-title">
-                    <h4>Quiet Contemplation</h4>
+                <a href="articles.php" class="clickable-title">
+                    <h4>ADHD: You remember that thing, the ummm yk</h4>
                 </a>
             </div>
         </div>
