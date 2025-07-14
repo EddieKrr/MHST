@@ -10,12 +10,13 @@ if (!isset($_SESSION["name"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library</title>
+    <title>Home</title>
     <link rel="stylesheet" href="CSS/body.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <?php include 'header.php'; ?>
+    <div class="karibu"><h1>You'll love it here <?php echo ($_SESSION["name"]); ?></h1></div>
     <div class="parent">
         <div class="div1">
             <div class="slider-content">

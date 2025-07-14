@@ -475,3 +475,8 @@ body{
     justify-content: center;
     align-items: center;
 }
+.karibu{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}

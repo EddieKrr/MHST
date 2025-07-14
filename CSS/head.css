@@ -184,3 +184,10 @@ body{
   padding-top: 9px;
   max-width: 150px;
 }
+.admin-link {
+  text-decoration: none;
+  color: red;
+}
+.admin-link a{
+  text-decoration: none;
+}

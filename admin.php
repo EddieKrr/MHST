@@ -1,10 +1,11 @@
+<?php include 'admin_check.php'; ?>
 <?php
-session_start();
 
 if (!isset($_SESSION["name"])) {
     header("Location: signin.html");
     exit();
-}?>
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
