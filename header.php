@@ -20,8 +20,19 @@
                 <li><a href="chat.php">ChatRoom</a></li>
                 <li><a href="referral.php">Referrals</a></li>
                 <li><a href="#footer">Contact Us</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
             </ul>
         </div>
     </header>
+    <script>
+         const logoutBtn = document.getElementById('logoutBtn');
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = 'logout.php';
+        });
+    }
+    </script>
 </body>
 </html>
