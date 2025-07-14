@@ -100,10 +100,8 @@ if (!isset($_SESSION["name"])) {
     
     <script>
         const articleElements = document.querySelectorAll(".article");
-        const closeButtons = document.querySelectorAll(".close");
 
         console.log("Found articles:", articleElements.length);
-        console.log("Found close buttons:", closeButtons.length);
 
         articleElements.forEach(article => {
             article.addEventListener("click", () => {
@@ -113,16 +111,6 @@ if (!isset($_SESSION["name"])) {
                 console.log("Modal found:", modal);
                 if (modal) {
                     modal.style.display = "block";
-                }
-            });
-        });
-
-        closeButtons.forEach(button => {
-            button.addEventListener("click", () => {
-                console.log("Close button clicked");
-                const modal = button.closest("[class*='Modal']");
-                if (modal) {
-                    modal.style.display = "none";
                 }
             });
         });
