@@ -1,0 +1,420 @@
+/* CSS/admin.css - Complete styling for admin page */
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Page header */
+h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin: 30px 0;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    background: linear-gradient(45deg, #3498db, #2c3e50);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Container for the entire content */
+.admin-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+table thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+table th,
+table td {
+    padding: 15px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+table th {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+table tbody tr {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+table tbody tr:hover {
+    background: linear-gradient(90deg, #f8f9fa, #e9ecef);
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: white;
+}
+
+/* Action buttons in table */
+table .action-btn {
+    padding: 8px 16px;
+    margin: 2px 12px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+table .edit-btn {
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+}
+
+table .edit-btn:hover {
+    background: linear-gradient(45deg, #45a049, #4CAF50);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+table .delete-btn {
+    padding: 10px;
+    border-radius: 25px;
+    border: none;
+    background: linear-gradient(45deg, #f44336, #d32f2f);
+    color: white;
+}
+
+table .delete-btn:hover {
+    background: linear-gradient(45deg, #d32f2f, #f44336);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
+}
+
+/* Form Styles */
+form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    margin: 30px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    align-items: end;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+    outline: none;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+    transform: translateY(-2px);
+}
+
+form input::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+form button {
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+form button:hover {
+    background: linear-gradient(45deg, #764ba2, #667eea);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.6);
+}
+
+form button:active {
+    transform: translateY(-1px);
+}
+
+/* Edit Form Container */
+.form-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2px;
+    border-radius: 20px;
+    margin: 30px 0;
+    animation: slideInDown 0.6s ease-out;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-container h2 {
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.8rem;
+}
+
+.form-container form {
+    background: white;
+    margin: 0;
+    border-radius: 18px;
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-container input {
+    margin-bottom: 15px;
+}
+
+/* Button variations */
+#cancelEdit {
+    background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+    margin-left: 10px;
+}
+
+#cancelEdit:hover {
+    background: linear-gradient(45deg, #7f8c8d, #95a5a6);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    table {
+        font-size: 0.9rem;
+    }
+    
+    table th,
+    table td {
+        padding: 12px 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    h2 {
+        font-size: 2rem;
+        margin: 20px 0;
+    }
+    
+    table {
+        font-size: 0.8rem;
+        overflow-x: auto;
+        display: block;
+        white-space: nowrap;
+    }
+    
+    table thead,
+    table tbody,
+    table th,
+    table td,
+    table tr {
+        display: block;
+    }
+    
+    table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    table tr {
+        background: white;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    table td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+        white-space: normal;
+    }
+    
+    table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #2c3e50;
+    }
+    
+    form {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    
+    .form-container form {
+        padding: 20px;
+    }
+}
+
+/* Loading animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success/Error messages */
+.message {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 10px;
+    font-weight: 500;
+    text-align: center;
+    animation: slideInUp 0.5s ease-out;
+}
+
+.message.success {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+    border-left: 5px solid #2e7d32;
+}
+
+.message.error {
+    background: linear-gradient(45deg, #f44336, #d32f2f);
+    color: white;
+    border-left: 5px solid #c62828;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #764ba2, #667eea);
+}
