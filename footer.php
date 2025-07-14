@@ -13,12 +13,12 @@
                 <img src="images/logo.jpg" alt="Logo" class="logo">
             </ul>
             <ul class="links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="library.php">Articles</a></li>
+                <li><a href="#footer">Contact</a></li>
                 <li><a href="mailto:support@mhst.com">Email: support@mhst.com </a></li>
                 <li><a href="tel:+254701258510">Phone: +254 701 258510</a></li>
-                <li><a href="maps link">Address: STC, First Floor</a></li>
+                <li><a href="maps-link">Address: STC, First Floor</a></li>
             </ul>
         </div>
     </footer>

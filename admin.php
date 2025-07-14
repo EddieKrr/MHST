@@ -13,8 +13,10 @@ if (!isset($_SESSION["name"])) {
     <link rel="stylesheet" href="CSS/admin.css">
     <script src="JS/admin.js" defer></script>
     <title>Admin Page</title>
+    <?php include 'header.php';?>
 </head>
 <body>
+    <h2>Existing Users</h2>
     <table>
         <thead>
             <tr>
@@ -59,21 +61,6 @@ if (!isset($_SESSION["name"])) {
             <button type="button" id="cancelEdit">Cancel</button>
         </form>
     </div>
-
-    <h2>Existing Users</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Role</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody id="tbody"></tbody>
-    </table>
-</body>
+    <?php include 'footer.php';?>
+    </body>
 </html>
