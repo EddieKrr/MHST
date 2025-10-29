@@ -16,13 +16,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["name"] = $user["name"];
             $_SESSION["role"] = $user["role"];
 
-            header("Location: index.php");
+            header("Content-Type: application/json");
+            echo json_encode([
+                "success" => true,
+                "message" => "Login successful."
+            ]);
             exit();
         } else {
-            echo "<script>alert('Invalid password.'); window.location.href = 'signin.html';</script>";
+            echo json_encode([
+                "success" => false,
+                "message" => "Invalid password."
+            ]);
         }
     } else {
-        echo "<script>alert('User not found.'); window.location.href = 'signin.html';</script>";
+        echo json_encode([
+            "success" => false,
+            "message" => "User not found."
+        ]);
     }
 
     $conn->close();

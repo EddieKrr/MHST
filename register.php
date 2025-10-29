@@ -11,7 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $role     = 'user';
 
      if ($age<18) {
-        echo "<script>alert('You must be at least 18 years old to register.'); window.location.href = 'signin.html';</script>";
+        echo json_encode([
+            "success" => true,
+            "message" => "You must be at least 18 years old to register."
+        ]);
         exit();	
     }
 
@@ -22,14 +25,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->query($sql);
 
         
-        echo "<script>alert('Registration successful!'); window.location.href = 'signin.html';</script>";
+        echo json_encode([
+            "success" => true,
+            "message" => "Registration successful!"
+        ]);
     } catch (mysqli_sql_exception $e) {
         if ($e->getCode() == 1062) {
             
-            echo "<script>alert('This email is already registered. Please use another.'); window.location.href = 'signin.html';</script>";
+            echo json_encode([
+                "success" => false,
+                "message" => "This email is already registered. Please use another."
+            ]);
         } else {
-            
-            echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
+            echo json_encode([
+                "success" => false,
+                "message" => "Error: " . $e->getMessage()
+            ]);
         }
     }
 }
